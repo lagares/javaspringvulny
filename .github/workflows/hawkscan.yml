@@ -7,6 +7,10 @@ jobs:
     name: HawkScan
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       - uses: actions/checkout@v2
       - name: Create ${{ github.event.client_payload.repoName }} app directory
         run: mkdir -p common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.repoName }}
